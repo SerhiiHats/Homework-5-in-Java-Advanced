@@ -54,7 +54,7 @@ public class AllClassInformation {
         int count1 = 0;
         for (Field f : fields) {
             int modField = f.getModifiers();
-            System.out.println("\t\t3.1." + (++count1) + ". мод.доступа - " + Color.GREEN + (Modifier.toString(modField).equals("") ? "no mod." : Modifier.toString(modField)) + Color.DEFAULT + ", тип - " + Color.GREEN + f.getType() + Color.DEFAULT + ", название - " + Color.GREEN + f.getName() + Color.DEFAULT);
+            System.out.println("\t\t3.1." + (++count1) + ". мод.доступа - " + Color.GREEN + (Modifier.toString(modField).equals("") ? "no mod." : Modifier.toString(modField)) + Color.DEFAULT + ", тип - " + Color.GREEN + f.getType().getSimpleName() + Color.DEFAULT + ", название - " + Color.GREEN + f.getName() + Color.DEFAULT);
         }
 
         System.out.print("\t3.2. Класс " + userNameClass + " имеет следующие конструкторы: ");
@@ -84,7 +84,7 @@ public class AllClassInformation {
         int count3 = 0;
         for (Method m : methods) {
             int modMethod = m.getModifiers();
-            System.out.print("\t\t3.3." + (++count3) + ". мод.доступа - " + Color.GREEN + (Modifier.toString(modMethod).equals("") ? "no mod." : Modifier.toString(modMethod)) + Color.DEFAULT + ", возвращаемый тип - " + Color.GREEN + m.getReturnType() + Color.DEFAULT + ", название - " + Color.GREEN + m.getName() + Color.DEFAULT);
+            System.out.print("\t\t3.3." + (++count3) + ". мод.доступа - " + Color.GREEN + (Modifier.toString(modMethod).equals("") ? "no mod." : Modifier.toString(modMethod)) + Color.DEFAULT + ", возвращаемый тип - " + Color.GREEN + m.getReturnType().getSimpleName() + Color.DEFAULT + ", название - " + Color.GREEN + m.getName() + Color.DEFAULT);
             Class[] metParam = m.getParameterTypes();
             System.out.print(" ( ");
             for (Class mp : metParam) {
