@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 public class Cat {
     public static void main(String[] args) {
         Animal animal = new Animal();
-        System.out.println("Первоначальный класс: " + animal);
+        System.out.println("Первоначальный класс  : " + animal);
         Class<?> cl = Animal.class;
         Field[] field = cl.getDeclaredFields();
 
@@ -38,8 +38,20 @@ public class Cat {
                 }
             }
         }
-        System.out.println("Измененный класс    : " + animal);
-
-
+        System.out.println("Измененный класс 1-раз: " + animal);
+        try {
+            Field fl1 = cl.getDeclaredField("name");
+            fl1.setAccessible(true);
+            fl1.set(animal, "dog");
+            Field fl2 = cl.getDeclaredField("weight");
+            fl2.setAccessible(true);
+            fl2.set(animal, 7.350);
+            Field fl3 = cl.getDeclaredField("age");
+            fl3.setAccessible(true);
+            fl3.set(animal, 3);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            System.out.println("Что не так с аргументом или поле не было найдено");
+        }
+        System.out.println("Измененный класс 2-раз: " + animal);
     }
 }
